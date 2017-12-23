@@ -3,5 +3,11 @@ update_pkgver=""
 pwd=$PWD
 cd $SRCDEST/$pkgname
 svn update
-update_pkgver="$(cat qt5.pas | grep '{ Version :' | sed -e 's/.*\([0-9]\+\.[0-9]\+\).*/\1/').svn$(svnversion | tr -d [A-z])"
+if svn diff -r $_svnrevision | grep Index > /dev/null 2>&1; then
+    update_pkgver="$(cat qt5.pas | grep '{ Version :' | sed -e 's/.*\([0-9]\+\.[0-9]\+\).*/\1/').r$(svnversion | tr -d [A-z])"
+    update__svnrevision="$(svnversion)"
+else
+    update_pkgver="$pkgver"
+    update__svnrevision="$_svnrevision"
+fi
 cd $pwd

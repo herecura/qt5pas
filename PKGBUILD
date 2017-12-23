@@ -3,7 +3,8 @@
 # Contributor: rebel <novakpetya at yahoo dot co dot uk>
 
 pkgname=qt5pas
-pkgver=2.6.svn56827
+_svnrevision=54980
+pkgver=2.6.r$_svnrevision
 pkgrel=1
 pkgdesc='Free Pascal Qt5 binding library updated by lazarus IDE'
 arch=('x86_64')
@@ -11,13 +12,8 @@ url='https://svn.freepascal.org/svn/lazarus/trunk/lcl/interfaces/qt5/cbindings'
 license=('LGPL3')
 depends=('qt5-base' 'qt5-x11extras')
 makedepends=('subversion')
-source=("$pkgname::svn+https://svn.freepascal.org/svn/lazarus/trunk/lcl/interfaces/qt5/cbindings")
+source=("$pkgname::svn+https://svn.freepascal.org/svn/lazarus/trunk/lcl/interfaces/qt5/cbindings#revision=$_svnrevision")
 sha512sums=('SKIP')
-
-pkgver() {
-    cd "$pkgname"
-    echo "$(cat qt5.pas | grep '{ Version :' | sed -e 's/.*\([0-9]\+\.[0-9]\+\).*/\1/').svn$(svnversion | tr -d [A-z])"
-}
 
 build() {
     cd "$pkgname"

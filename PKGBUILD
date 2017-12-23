@@ -3,7 +3,7 @@
 # Contributor: rebel <novakpetya at yahoo dot co dot uk>
 
 pkgname=qt5pas
-pkgver=2.6.56826
+pkgver=2.6.svn56826
 pkgrel=1
 pkgdesc='Free Pascal Qt5 binding library updated by lazarus IDE'
 arch=('x86_64')
@@ -16,7 +16,7 @@ sha512sums=('SKIP')
 
 pkgver() {
     cd "$pkgname"
-    echo "$(cat qt5.pas | grep '{ Version :' | sed -e 's/.*\([0-9]\+\.[0-9]\+\).*/\1/').$(svnversion | tr -d [A-z])"
+    echo "$(cat qt5.pas | grep '{ Version :' | sed -e 's/.*\([0-9]\+\.[0-9]\+\).*/\1/').svn$(svnversion | tr -d [A-z])"
 }
 
 build() {

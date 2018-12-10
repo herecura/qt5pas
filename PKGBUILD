@@ -4,7 +4,7 @@
 pkgname=qt5pas
 _svnrevision=59762
 pkgver=2.6.r59762
-pkgrel=1
+pkgrel=2
 pkgdesc='Free Pascal Qt5 binding library updated by lazarus IDE'
 arch=('x86_64')
 url='https://svn.freepascal.org/svn/lazarus/trunk/lcl/interfaces/qt5/cbindings'
